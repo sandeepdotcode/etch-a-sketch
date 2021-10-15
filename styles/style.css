@@ -27,4 +27,18 @@ html {
     height: 70vh;
     width: 70vh;
     border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.grid-row {
+    display: flex;
+    flex: 1 1;
+}
+
+.grid-square {
+    border: 1px dotted black;
+    flex: 1 1 auto;
 }
