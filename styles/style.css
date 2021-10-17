@@ -27,18 +27,19 @@ html {
     height: 70vh;
     width: 70vh;
     border: 5px solid black;
+    box-sizing: content-box;            /* border-box leads to extra space after last row - due to border being included in height */
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    justify-content: stretch;
 }
 
 .grid-row {
     display: flex;
-    flex: 1 1;
+    width: 70vh;
+    box-sizing: border-box;
+    flex: 1 1 auto;
 }
 
 .grid-square {
-    border: 1px dotted black;
+    border: 1px solid black;
     flex: 1 1 auto;
 }

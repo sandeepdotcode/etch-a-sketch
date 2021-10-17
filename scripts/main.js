@@ -8,7 +8,7 @@ function createGrid() {
 
         for (let j = 0; j < 16; j++) {
             const square = document.createElement('div');
-            square.className = 'grid-square'
+            square.className = 'grid-square';
             row.appendChild(square);
         }
 
