@@ -17,3 +17,10 @@ function createGrid() {
 }
 
 createGrid();
+
+squares = document.querySelectorAll('.grid-square');
+
+
+squares.forEach(square => square.addEventListener('mouseenter', () => {
+    square.style.backgroundColor = 'blue';
+}));
