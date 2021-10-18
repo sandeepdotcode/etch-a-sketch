@@ -1,14 +1,18 @@
-// function to create the grid
-function createGrid() {
-    const container = document.querySelector('.container');
+const container = document.querySelector('.container');
+const clearBtn = document.querySelector('.clear-button');
+const colorInput = document.querySelector('.color-picker');
+const slider = document.querySelector('.slider');
 
-    for (let i = 0; i < 16; i++) {
+// function to create the grid
+function createGrid(size) {
+    for (let i = 0; i < size; i++) {
         const row = document.createElement('div');
         row.className = 'grid-row';
 
-        for (let j = 0; j < 16; j++) {
+        for (let j = 0; j < size; j++) {
             const square = document.createElement('div');
             square.className = 'grid-square';
+            square.addEventListener('mouseover', changeColor);
             row.appendChild(square);
         }
 
@@ -16,7 +20,9 @@ function createGrid() {
     }
 }
 
-createGrid();
+function changeColor(e) {
+    e.target.style.backgroundColor = `${color}`;
+}
 
 function clearGrid() {
     squares.forEach(square => {
@@ -24,18 +30,26 @@ function clearGrid() {
     })
 }
 
-const squares = document.querySelectorAll('.grid-square');
-const clearBtn = document.querySelector('.clear-button');
-const colorInput = document.querySelector('.color-picker');
+function reloadGrid(size) {
+    const container = document.querySelector('.container');
+    container.innerHTML = '';
+    createGrid(size);
+}
 
+
+
+// Initializes a 16x16 grid when page is loaded
+createGrid(16);
+
+// color value grabbed from color input
+// once when page is loaded and dynamically on 'change' event
 let color = colorInput.value;
 
 colorInput.addEventListener('change', () => {
     color = colorInput.value;
 });
 
-squares.forEach(square => square.addEventListener('mouseenter', () => {
-    square.style.backgroundColor = `${color}`;
-}));
-
 clearBtn.addEventListener('click', clearGrid);
+
+slider.addEventListener('input', (e) => reloadGrid(e.target.valueAsNumber));
+slider.addEventListener('change', (e) => reloadGrid(e.target.valueAsNumber));
