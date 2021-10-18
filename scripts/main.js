@@ -36,6 +36,11 @@ function reloadGrid(size) {
     createGrid(size);
 }
 
+// display slider value above it
+function rangeSlide(value) {
+    document.getElementById('slider-value').textContent = `${value} x ${value}`;
+}
+
 
 
 // Initializes a 16x16 grid when page is loaded
@@ -51,5 +56,10 @@ colorInput.addEventListener('change', () => {
 
 clearBtn.addEventListener('click', clearGrid);
 
+// event handlers to display slider value changing
+slider.addEventListener('change', e => rangeSlide(e.target.value));
+slider.addEventListener('mousemove', e => rangeSlide(e.target.value));
+
+// event handlers to rebuild the grid with new slider value
 slider.addEventListener('input', (e) => reloadGrid(e.target.valueAsNumber));
 slider.addEventListener('change', (e) => reloadGrid(e.target.valueAsNumber));

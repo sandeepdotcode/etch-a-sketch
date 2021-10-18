@@ -23,6 +23,26 @@ html {
     align-items: center;
 }
 
+#slider-value {
+    display: block;
+    text-align: center;
+    font-size: 3em;
+    font-weight: 400;
+}
+
+.slider {
+    width: 160px;
+    height: 16px;
+    outline: none;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.slider::-moz-range-thumb,
+.slider::-webkit-slider-thumb {
+    
+}
+
 .container {
     height: 70vh;
     width: 70vh;
@@ -40,6 +60,6 @@ html {
 }
 
 .grid-square {
-    border: 1px solid black;
+    border: 1px dotted black;
     flex: 1 1 auto;
 }
