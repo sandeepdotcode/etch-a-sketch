@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/main.js" defer></script>
+    <script src="scripts/main.js" defer></script> 
+
     <title>Etch A Sketch</title>
 </head>
 
@@ -15,6 +16,18 @@
         <h1>Etch A Sketch</h1>
     </header>
     <main class="main">
+        <div class="left-controls">
+            <div class="picker-div">
+                <input type="color" class="color-picker" value="#000000">
+            </div>
+            <div class="slider-div">
+                <div class="slider-value"></div>
+                <input type="range" min="16" max="64" value="16" class="slider">
+            </div>
+            <div class="clear-div">
+                <button class="clear-button">Clear</button>
+            </div>
+        </div>
         <div class="container">
 
         </div>

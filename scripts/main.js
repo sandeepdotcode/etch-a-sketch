@@ -18,9 +18,24 @@ function createGrid() {
 
 createGrid();
 
-squares = document.querySelectorAll('.grid-square');
+function clearGrid() {
+    squares.forEach(square => {
+        square.style.backgroundColor = 'transparent';
+    })
+}
 
+const squares = document.querySelectorAll('.grid-square');
+const clearBtn = document.querySelector('.clear-button');
+const colorInput = document.querySelector('.color-picker');
+
+let color = colorInput.value;
+
+colorInput.addEventListener('change', () => {
+    color = colorInput.value;
+});
 
 squares.forEach(square => square.addEventListener('mouseenter', () => {
-    square.style.backgroundColor = 'blue';
+    square.style.backgroundColor = `${color}`;
 }));
+
+clearBtn.addEventListener('click', clearGrid);
