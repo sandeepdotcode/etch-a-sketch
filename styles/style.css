@@ -21,6 +21,17 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 50px;
+}
+
+.left-controls,
+.right-controls {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 #slider-value {
@@ -40,7 +51,7 @@ html {
 
 .slider::-moz-range-thumb,
 .slider::-webkit-slider-thumb {
-    
+
 }
 
 .container {
