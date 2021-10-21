@@ -70,6 +70,8 @@ function changeColor(e) {
 }
 
 function clearGrid() {
+    const squares = document.querySelectorAll('.grid-square');
+
     squares.forEach(square => {
         square.style.backgroundColor = 'transparent';
     })
