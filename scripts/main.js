@@ -104,6 +104,6 @@ clearBtn.addEventListener('click', clearGrid);
 slider.addEventListener('mousemove', e => rangeSlide(e.target.value));
 
 // event handler to rebuild the grid with new slider value
-slider.addEventListener('input', (e) => reloadGrid(e.target.valueAsNumber));
+//slider.addEventListener('input', (e) => reloadGrid(e.target.valueAsNumber));
 slider.addEventListener('change', (e) => reloadGrid(e.target.valueAsNumber));
 

@@ -4,11 +4,13 @@
     --background-color: #E8C2CA;
     --sketchpad-color: #e9e9e9;
     --bg-active-button: #735D78;
+    --bg-inactive-button: #B392AC;
 }
 
 html {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    height: 100%;
 }
 
 *,
@@ -21,6 +23,9 @@ html {
 
 body {
     background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .header {
@@ -38,6 +43,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 50px;
+    flex: 1 0 auto;
 }
 
 .left-controls,
@@ -54,8 +60,10 @@ body {
     height: 100px;
     width: 100px;
     border: none;
+    outline: none;
     -webkit-appearance: none;
     -moz-appearance: none;
+    
 }
 
 #slider-value {
@@ -74,18 +82,13 @@ body {
     overflow: hidden;
 }
 
-.slider::-moz-range-thumb,
-.slider::-webkit-slider-thumb {
-
-}
-
 .button {
     width: 160px;
     height: 35px;
     border: none;
     border-radius: 6px;
     color: white;
-    background-color: #B392AC;
+    background-color: var(--bg-inactive-button);
     transition: transform 0.5s;
 }
 
@@ -117,4 +120,27 @@ body {
 .grid-square {
     border: 0.4px dotted black;
     flex: 1 1 auto;
+}
+
+.footer {
+    color: var(--bg-active-button);
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin: 10px 0;
+}
+
+.creator a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.fa-github {
+    transition: transform 0.3s ease-in-out;
+    font-size: 20px;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.1);
 }
