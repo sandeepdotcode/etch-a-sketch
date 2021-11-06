@@ -1,4 +1,4 @@
-let currentMode = 0;                // 0 - normal, 1 - rainbow
+let currentMode = 0;                // 0 - normal, 1 - rainbow, 2 - eraser
 let prevMode = 0;
 
 const container = document.querySelector('.container');
@@ -7,6 +7,7 @@ const colorInput = document.querySelector('.color-picker');
 const slider = document.querySelector('.slider');
 const normBtn = document.querySelector('.normal-button');
 const randBtn = document.querySelector('.random-button');
+const eraseBtn = document.querySelector('.eraser-button');
 
 // color value grabbed from color input
 // once when page is loaded and dynamically on 'change' event
@@ -36,6 +37,12 @@ function normMode() {
         normBtn.classList.add('active');
         randBtn.classList.remove('active');
     }
+    else if (currentMode === 2) {
+        prevMode = currentMode;
+        currentMode = 0;
+        normBtn.classList.add('active');
+        eraseBtn.classList.remove('active');
+    }
 }
 function getRandomVal() {
     return Math.floor(Math.random() * (256 - 0) + 0);
@@ -47,13 +54,33 @@ function getRandomColor() {
 
 function randomMode() {
     randBtn.classList.toggle('active');
+    prevMode = currentMode;
     if (currentMode === 0) {
-        prevMode = currentMode;
         currentMode = 1;
         normBtn.classList.remove('active');
     }
     else if (currentMode === 1) {             // toggle random color off
-        prevMode = 1;
+        currentMode = 0;
+        normBtn.classList.add('active');
+    }
+    else if (currentMode === 2) {
+        currentMode = 1;
+        eraseBtn.classList.remove('active');
+    }
+}
+
+function eraserMode() {
+    eraseBtn.classList.toggle('active');
+    prevMode = currentMode;
+    if (currentMode === 0) {
+        currentMode = 2;
+        normBtn.classList.remove('active');
+    }
+    else if (currentMode === 1) {
+        currentMode = 2;
+        randBtn.classList.remove('active');
+    }
+    else if (currentMode === 2) {
         currentMode = 0;
         normBtn.classList.add('active');
     }
@@ -63,8 +90,11 @@ function changeColor(e) {
     if (currentMode === 0) {
         e.target.style.backgroundColor = `${color}`;
     }
-    else if (currentMode == 1) {
+    else if (currentMode === 1) {
         e.target.style.backgroundColor = `${getRandomColor()}`;
+    }
+    else if (currentMode === 2) {
+        e.target.style.backgroundColor = `#e9e9e9`;
     }
     
 }
@@ -98,6 +128,7 @@ colorInput.addEventListener('change', () => {
 
 normBtn.addEventListener('click', normMode);
 randBtn.addEventListener('click', randomMode);
+eraseBtn.addEventListener('click', eraserMode);
 clearBtn.addEventListener('click', clearGrid);
 
 // event handler to display slider value changing
