@@ -4,7 +4,7 @@ Project from The Odin Project [Curriculum](https://www.theodinproject.com/paths/
 
 ## **What I learned**:
 
-By doing this part of the project, I learned
+By doing this project, I learned
 
 - Manipulate DOM tree and dynamically create html elements(creating the square divs in the sketchpad)
 - Toggling classes in a node
@@ -15,8 +15,9 @@ By doing this part of the project, I learned
 ![Preview](./images/preview.png)
 
 ## **Features to be added in future**:
-- Eraser mode
-- Drawing starts only after a 'single-click'
-- Shader mode - each pass just add or remove 10% of alpha value
-- Option to turn borders on or off
-- Button to fill color
+
+- [x] Eraser mode
+- [ ] Drawing starts only after a 'single-click'
+- [ ] Shader mode - each pass just add or remove 10% of alpha value
+- [ ] Option to turn borders on or off
+- [ ] Button to fill color
